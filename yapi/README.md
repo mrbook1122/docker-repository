@@ -7,7 +7,7 @@
 
 2.启动mongo，指定自己网络
 
-> docker run --name mongo -v mongo:/data/db -d --network my-net mongo
+> docker run --name mongo -v mongo:/data/db -d --network my-net --restart always mongo
 
 ## yapi
 
@@ -18,10 +18,10 @@
 > docker volume create yapi
 
 3.初始化
-> docker run --rm -v --name yapi-install yapi:/my-yapi --publish 9090:9090 -d --network my-net yapi-install
+> docker run --rm --name yapi-install -v yapi:/my-yapi --publish 9090:9090 -d --network my-net yapi-install
 
 4.构建yapi
 > docker build -t yapi .
 
 5.启动yapi
-> docker run --name yapi -v yapi:/my-yapi --publish 5050:3000 --network my-net -d yapi
+> docker run --name yapi -v yapi:/my-yapi --publish 5050:3000 --network my-net -d --restart always yapi
