@@ -7,3 +7,7 @@
 > docker exec -i some-mysql sh -c "exec mysql -uroot -p$MYSQL_ROOT_PASSWORD" < /some/path/on/your/host/all-databases.sql
 
 此命令必须在cmd中执行
+
+# 设置时区
+
+> set global time_zone = '+8:00'
